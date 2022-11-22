@@ -1,46 +1,21 @@
-let songSrc = "../audios/track.mp3"
+function sounds(){
+    
+    var rand = [
+        'https://rafaelgoulartb.github.io/audio-book-website/audios/track.mp3',
+        'http://thejazz.ninja/sounds/w.mp3',
+        'http://thejazz.ninja/sounds/x.mp3',
+        'http://thejazz.ninja/sounds/y.mp3',
+        'http://thejazz.ninja/sounds/z.mp3'];
 
-const songTitle = document.getElementsByClassName('audio-player-title')
-const fillBar = document.getElementById('fill')
-const currentSecondsTime = document.getElementById('current-time-seconds-song')
-const currentMinutesTime = document.getElementById('current-time-minutes-song')
+    var randSound = rand[Math.floor(Math.random() * rand.length)];
+    
+    var player=document.getElementById('player');
+    var sourceMp3=document.getElementById('sourceMp3');
 
-const song = new Audio()
-
-const playSong = () => {
-  song.src = songSrc
-  song.play()
+    sourceMp3.src='' + randSound + '';
+    
+   player.load();
+   player.play();
 }
 
-function playOrPauseSong(){           
-  if(song.paused){
-      playSong()
-      song.play();
-      $("#play img").attr("src","./img/pause-button.png");
-    }
-    else{
-      song.pause();
-      $("#play img").attr("src","./img/play-button.png");
-  }
-}
-
-function updateTime() {
-  song.addEventListener('timeupdate', () => {
-    let minutes = Math.floor(song.currentTime / 60)
-    let seconds = song.currentTime - minutes * 60
-
-    currentMinutesTime.textContent = minutes
-    currentSecondsTime.textContent = Math.round(seconds)
-  })
-}
-
-function updateProgressBar() {
-  song.addEventListener('timeupdate', () => { 
-    let position = song.currentTime / song.duration;
-    fillBar.style.width = position * 100 +'%';
-  });
-}
-
-
-updateTime()
-updateProgressBar()
+$('.box').click(sounds);
