@@ -1,17 +1,52 @@
-<div class="box"></div>
-<div class="box"></div>
-<div class="box"></div>
 
-<script src="./js/player.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test</title>
+</head>
+<body>
 
-<audio id="player" autoplay>
+
+ <audio id="player" autoplay>
   <source id="sourceMp3" src="" type="audio/mp3" />
   Your browser does not support the audio element.
 </audio>
+  
+          <script>
+function sounds(){
+    
+    var rand = [
+        'https://rafaelgoulartb.github.io/audio-book-website/audios/track.mp3',
+        'http://thejazz.ninja/sounds/w.mp3',
+        'http://thejazz.ninja/sounds/x.mp3',
+        'http://thejazz.ninja/sounds/y.mp3',
+        'http://thejazz.ninja/sounds/z.mp3'];
 
+    var randSound = rand[Math.floor(Math.random() * rand.length)];
+    
+    var player=document.getElementById('player');
+    var sourceMp3=document.getElementById('sourceMp3');
+
+    sourceMp3.src='' + randSound + '';
+    
+   player.load();
+   player.play();
+}
+
+$('.box').click(sounds);
+
+        </script>
+  
 <p>
     <button onclick='sounds()'> Load Sound</button>
 </p>
+ 
+  
+<script src="test_sound.js"></script>
+</body>
+</html>
+
 
 
 
