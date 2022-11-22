@@ -27,20 +27,21 @@ function sounds(){
     
     var player=document.getElementById('player');
     var sourceMp3=document.getElementById('sourceMp3');
+     var myTxt=document.getElementById('myTxt');
+    //myTxt.innerHTML = randSound
+    window.location = randSound
 
-    sourceMp3.src='' + randSound + '';
+    //sourceMp3.src='' + randSound + '';
     
-   player.load();
-   player.play();
+   //player.load();
+   //player.play();
 }
 
-$('.box').click(sounds);
+sounds()
 
         </script>
   
-<p>
-    <button onclick='sounds()'> Load Sound</button>
-</p>
+
  
   
 <script src="test_sound.js"></script>
